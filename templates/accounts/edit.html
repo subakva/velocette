@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block subtitle %}Edit Account{% endblock subtitle %}
+
+{% block content %}
+<h3>Edit Profile</h3>
+{% include "accounts/forms/_edit.html" %}
+<h3>Change Password</h3>
+{% include "accounts/forms/_change_password.html" %}
+{% endblock content %}

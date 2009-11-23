@@ -1,0 +1,27 @@
+{% load timezone_filters %}
+<table class='task-list'>
+  <tr>
+    <th class='task-date'>Created At</th>
+    <th class='task-description'>Description</th>
+    <th class='task-estimate'>Est.</th>
+    <th class='task-icon'></th>
+    <th class='task-icon'></th>
+  </tr>
+  {% for task in backlog_list %}
+  <tr>
+    <td class='task-date'>{{task.created_at|localtime:time_zone|date:"d M Y"}}</td>
+    <td class='task-description'>{{task.description}}</td>
+    <td class='task-estimate'>{{task.estimate}}</td>
+    <td class='task-icon'>
+      <a href='{% url unbacklog_task task.id %}' title='Mark this task as pending'>
+        <img src='{{MEDIA_URL}}img/arrow_undo.png' alt='Pending'/>
+      </a>
+    </td>
+    <td class='task-icon'>
+      <a href='{% url destroy_task task.id %}' class='boxy' title='Destroy this task'>
+        <img src='{{MEDIA_URL}}img/delete.png' alt='Destroy'/>
+      </a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>

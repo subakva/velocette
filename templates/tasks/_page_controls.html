@@ -1,0 +1,27 @@
+{% if is_paginated %}
+  <p class='results-meta'>
+    Showing results {{first_on_page}} - {{last_on_page}} of {{hits}}.
+  </p>
+  <p class='results-nav'>
+    {% if has_previous %}
+    <a href='?page=1&{{form.as_query}}' title='Show the first page of results.' rel='start'>First</a>
+    |
+    <a href='?page={{previous}}&{{form.as_query}}'
+      title='Show previous page of results.' rel='prev'>Previous</a>
+    {% else %}
+    <span title='This is the first page.'>First</span>
+    |
+    <span title='There is no previous page.'>Previous</span>
+    {% endif %}
+    |
+    {% if has_next %}
+    <a href='?page={{next}}&{{form.as_query}}' title='Show next page of results.' rel='next'>Next</a>
+    |
+    <a href='?page={{pages}}&{{form.as_query}}' title='Show the last page of results.'>Last</a>
+    {% else %}
+    <span title='There is no next page.'>Next</span>
+    |
+    <span title='This is the last page.'>Last</span>
+    {% endif %}
+  </p>
+{% endif %}

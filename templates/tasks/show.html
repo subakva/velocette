@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block subtitle %}Task{% endblock subtitle %}
+
+{% block content %}
+  <h3>Task</h3>
+  
+  <p><strong>Description:</strong> {{task.description}}</p>
+  <p><strong>Estimate:</strong> {{task.estimate}}</p>
+  <p><strong>Created At:</strong> {{task.created_at}}</p>
+  <p><strong>Completed At:</strong> {{task.completed_at}}</p>
+
+  <p>
+    <a href='{% url new_task %}' title='Create a new task.'>
+      Create another task.
+    </a>
+  </p>
+
+{% endblock content %}

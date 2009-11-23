@@ -1,0 +1,15 @@
+<h3>Velocity Chart</h3>
+{% for completed_list in completed_lists %}
+<table>
+  <tr>
+    <td style='width:1em'>{{forloop.counter}}</td>
+    <td style='width:auto'>
+      <div style='
+        border-left: 1px solid #000;
+        margin-bottom:4px;
+        background-color:#000;
+        width:{% widthratio completed_list|length 10 600 %}px'>&nbsp;</div>
+    </td>
+  </tr>
+</table>
+{% endfor %}

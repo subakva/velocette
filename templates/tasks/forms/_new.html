@@ -1,0 +1,7 @@
+<form action='{% url create_task %}' method='post' accept-charset='utf-8'
+    class='task-form'>
+  {{new_task_form.as_p}}
+  <p>
+    <input type='submit' class='submit' value='Create'/>
+  </p>
+</form>

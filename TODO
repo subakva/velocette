@@ -1,0 +1,36 @@
+Bugs
+
+Tasks
+
+- add priority to task
+- add drag/drop for setting priority
+- add links/actions for increase/decrease priority
+
+- associate task with project
+- view tasks by project
+- if all project tasks are completed, add a note to the "completed yesterday page"
+
+- create items with ajax to speed up the UI
+
+- change history to page by day, rather than by count
+- implement webrat (or something) for automated testing
+
+- implement automatic api
+- create a quicksilver plugin
+- build an iphone interface or app
+
+- add ability to mark a time when a stand-up took place (reported_at?)
+- create view to display all tasks since last report
+- add a column for pending tasks to display age; highlight old stuff
+- add ability to email a daily report (manually) (OPEN RELAY WARNING)
+- add middleware that logs errors to a file
+- investigate caching to improve performance (cache to static?)
+
+- add ability to mark a task as "started"
+- velocity graph (google charts api)
+- expected to complete today
+
+Done
+
+- add the ability to move tasks to a "backlog"
+- fix bug in setting completed_at date in edit dialog

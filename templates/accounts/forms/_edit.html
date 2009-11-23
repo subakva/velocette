@@ -1,0 +1,7 @@
+<form action='{% url update_account user.id %}' method='post' accept-charset='utf-8'
+      class='account-form'>
+  {{edit_account_form.as_p}}
+  <p>
+    <input type='submit' class='submit' value='Update'/>
+  </p>
+</form>

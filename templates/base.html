@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>
+      {% block subtitle %}{% endblock subtitle %} - {% block title %}Velocette{% endblock title %}
+    </title>
+
+    {% load compressed %}
+    {% compressed_css 'screen' %}
+    {% compressed_js 'all' %}
+
+    <link rel='shortcut icon' href='{{MEDIA_URL}}img/favicon.ico' type='image/x-icon' />
+    <link rel="apple-touch-icon" href="{{MEDIA_URL}}img/apple-touch-icon.png"/>
+    <meta name = "viewport" content = "initial-scale = 0.5" />
+
+    {% block extra_header %}{% endblock extra_header %}
+  </head>
+  <body>
+    <div id='wrapper'>
+
+      <div id='header'>
+        <h1>
+          {% if request.user.is_authenticated %}
+          <a href='{% url tasks_index %}' title='Go to your task list.'>velocette.</a>
+          {% else %}
+          <a href='{% url welcome %}' title='Browse to the main page.'>velocette.</a>
+          {% endif %}
+        </h1>
+        <div class='main-navigation'>
+          {% if request.user.is_authenticated %}
+          <a href='{% url edit_account user.id %}' title='Edit your account details.'>Edit Account</a>
+          |
+          <a href='{% url destroy_session %}' title='Sign out of your account.'>Sign out</a>
+          {% else %}
+          <a href='{% url new_session %}' title='Sign in to your account.'>Sign in</a>
+          |
+          <a href='{% url new_account %}' title='Create a new account.'>Sign up</a>
+          {% endif %}
+        </div>
+
+        {% if notifications %}
+        <div class='messages'>
+        <ul>
+          {% for notification in notifications %}
+          <li class="{{ notification.type }}">{{ notification.content }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+
+      <div id='content'>
+        {% block content %}No content.{% endblock content %}
+      </div>
+
+      <div id='footer'>
+        <p class='thanks'>
+          <a href='http://www.webfaction.com/signup?affiliate=subakva' title='web faction'>Web Faction</a>
+          |
+          <a href='http://www.djangoproject.com/' title='django'>Django</a>
+          |
+          <a href='http://www.famfamfam.com/lab/icons/silk/' title='silk icons'>Fam Fam Fam</a>
+          |
+          &copy; 2008 Jason Wadsworth
+        </p>
+      </div>
+
+    </div>
+    {% block extra_footer %}{% endblock extra_footer %}
+  </body>
+</html>

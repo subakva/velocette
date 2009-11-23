@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /
+RewriteRule ^(robots.txt)$ - [L]
+RewriteRule ^(favicon.ico)$ - [L]
+RewriteRule ^(internal_error.html)$ - [L]
+RewriteRule ^(dispatch\.fcgi/.*)$ - [L]
+RewriteRule ^(.*)$ dispatch.fcgi/$1 [L]

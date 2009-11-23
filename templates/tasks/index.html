@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load timezone_filters %}
+
+{% block subtitle %}Tasks{% endblock subtitle %}
+
+{% block content %}
+{% load velocity %}
+
+{% include "tasks/_dashboard.html" %}
+
+<h3>All Pending Tasks</h3>
+{% if not pending_tasks %}
+  <p>
+    There are no pending tasks. What are you going to do next?
+    <a href='{% url new_task %}' title='Create a new task.' class='boxy'>
+      Create a new task.
+    </a>
+  </p>
+{% else %}
+  <table class='task-list'>
+    <tr>
+      <th class='task-date'>Created At</th>
+      <th class='task-description'>Description</th>
+      <th class='task-estimate'>Est.</th>
+      <th class='task-icon'></th>
+      <th class='task-icon'></th>
+      <th class='task-icon'></th>
+      <th class='task-icon'></th>
+    </tr>
+    {% for task in pending_tasks %}
+    <tr>
+      <td class='task-date'>{{task.created_at|localtime:time_zone|date:"d M Y"}}</td>
+      <td class='task-description'>{{task.description}}</td>
+      <td class='task-estimate'>{{task.estimate}}</td>
+      <td class='task-icon'>
+        <a href='{% url complete_task task.id %}' title='Mark this task as complete'>
+          <img src='{{MEDIA_URL}}img/accept.png' alt='Complete'/>
+        </a>
+      </td>
+      <td class='task-icon'>
+        <a href='{% url edit_task task.id %}' class='boxy' title='Edit this task'>
+          <img src='{{MEDIA_URL}}img/pencil.png' alt='Edit'/>
+        </a>
+      </td>
+      <td class='task-icon'>
+        <a href='{% url backlog_task task.id %}' title='Move this task to the backlog'>
+          <img src='{{MEDIA_URL}}img/hourglass_go.png' alt='Backlog'/>
+        </a>
+      </td>
+      <td class='task-icon'>
+        <a href='{% url destroy_task task.id %}' class='boxy' title='Destroy this task'>
+          <img src='{{MEDIA_URL}}img/delete.png' alt='Destroy'/>
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  <p>
+    <strong>Estimate:</strong> {% velocity pending_tasks %}
+  </p>
+{% endif %}
+
+<h3>Completed Today</h3>
+{% if not completed_today %}
+  <p>You haven't completed anything today.</p>
+{% else %}
+  {% with completed_today as completed_list %}
+    {% include "tasks/_completed_list.html" %}
+  {% endwith %}
+  <p>
+    <strong>Velocity:</strong> {% velocity completed_today %}
+  </p>
+{% endif %}
+
+{# <h3>Velocity Chart</h3> #}
+{# include "tasks/_velocity_chart.html" #}
+
+{% for completed_list in completed_lists %}
+  <h3>
+    Completed {% if forloop.first %}Yesterday{% else %}{{forloop.counter}} Days Ago{% endif %}
+  </h3>
+  {% if not completed_list %}
+    <p>
+      You didn't complete anything
+      {% if forloop.first %}yesterday{% else %}{{forloop.counter}} days ago{% endif %}.
+    </p>
+  {% else %}
+    {% include "tasks/_completed_list.html" %}
+    <p>
+      <strong>Velocity:</strong> {% velocity completed_list %}
+    </p>
+  {% endif %}
+{% endfor %}
+
+
+{% endblock content %}

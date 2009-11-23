@@ -1,0 +1,5 @@
+PYTHONPATH=/home/jasonwf/webapps/velocette_web/velocette/lib
+30 * * * * /home/jasonwf/webapps/velocette_web/velocette/manage.py runjobs hourly >/dev/null 2>&1
+00 3 * * * /home/jasonwf/webapps/velocette_web/velocette/manage.py runjobs daily >/dev/null 2>&1
+00 4 * * 0 /home/jasonwf/webapps/velocette_web/velocette/manage.py runjobs weekly >/dev/null 2>&1
+00 5 1 * * /home/jasonwf/webapps/velocette_web/velocette/manage.py runjobs monthly >/dev/null 2>&1

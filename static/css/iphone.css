@@ -1,0 +1,20 @@
+@media only screen and (max-device-width: 480px) {
+  body { font-size: 110%; }
+  table.task-list td { padding: 10px 0; }
+  table.task-list th.task-icon { width: 3em; }
+
+  form.account-form { width: 19em; }
+  form.account-form label { width: 7em; font-weight: bold; }
+  form.account-form select,
+  form.account-form textarea,
+  form.account-form input[type=text],
+  form.account-form input[type=password] { width: 17em; }
+
+  form.task-form { width: 12em; }
+  form.task-form label { width: 8em; }
+  form.task-form select,
+  form.task-form textarea,
+  form.task-form input[type=text],
+  form.task-form input[type=password] { width: 17em; }
+  form.task-form textarea { height: 6em; }
+}

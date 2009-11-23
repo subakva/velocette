@@ -1,0 +1,7 @@
+<form action='{% url update_task task.id %}' method='post' accept-charset='utf-8'
+    class='task-form'>
+  {{edit_task_form.as_p}}
+  <p>
+    <input type='submit' class='submit' value='Update'/>
+  </p>
+</form>

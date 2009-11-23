@@ -1,0 +1,13 @@
+env/_local.py
+.DS_Store
+.svn
+*.tmproj
+*.pyc
+logs/*.log
+static/admin
+lib/django
+lib/compress
+lib/django_extensions
+lib/dmigrations
+lib/timezones
+lib/pytz

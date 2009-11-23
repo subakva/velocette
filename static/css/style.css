@@ -1,0 +1,95 @@
+body {
+ font: 80% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif; 
+ margin: 0; padding: 0 0 20px;
+}
+li { margin: 0; padding: 0; }
+ul, ol { margin: 0; padding: 0 0 0 30px; }
+h1 { margin: 0; padding: 10px 0; }
+h2 { margin: 0; padding: 10px 0; }
+h3 { margin: 0; padding: 10px 0; }
+h4 { margin: 0; padding: 10px 0; }
+p { margin: 4px 0; padding: 4px 0; }
+a { color: #36C; }
+img { border: none; }
+
+table.task-list {
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
+}
+table.task-list,
+table.task-list tr,
+table.task-list td { margin: 0; padding: 0; }
+table.task-list th,
+table.task-list td { padding: 2px; border: 1px solid #999; }
+table.task-list th { font-weight:normal; background-color: #36C; color: #EEE; text-align: center; }
+table.task-list td { text-align: center; }
+
+table.task-list th.task-description { width: auto; }
+table.task-list th.task-estimate { width: 2em; }
+table.task-list th.task-date { width: 7em; }
+table.task-list th.task-icon { width: 2em; }
+
+table.task-list td.task-description { text-align: left; padding-left: 4px; }
+
+.boxy-overlay { display:none; width: 40em; }
+
+form p { clear: both; }
+form p label,
+form p textarea,
+form p input[type=text] { float: left; }
+
+form p label { width: 10em; font-weight: bold; }
+form p textarea,
+form p select,
+form p input[type=text],
+form p input[type=password] { width: 30em; }
+form p input[type=submit] { float: right; }
+
+ul.errorlist {
+  clear: both;
+  border: 1px solid #800;
+  list-style-type: none;
+  background-color: #FFF;
+  color: #800;
+}
+ul.errorlist li {
+  padding: 4px 0;
+}
+
+form.account-form { width: 30em; margin: auto; }
+form.account-form select,
+form.account-form textarea,
+form.account-form input[type=text],
+form.account-form input[type=password] { width: 21em; }
+
+#wrapper { width: 600px; margin: auto; }
+#content { padding: 10px 0; }
+
+#header h1 { padding: 4px 0; text-align: left; }
+#header h1 a { text-decoration:none; }
+#header .main-navigation {
+  padding: 2px 0;
+  background-color: #FFF;
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
+  text-align: right;
+}
+#header .messages {}
+#header .messages ul {
+  clear: both;
+  margin: 4px 0 0;
+  padding: 0 0 0 10px;
+  border: 1px solid #080;
+  list-style-type: none;
+  background-color: #FFF;
+  color: #080;
+}
+#header .messages li { padding: 4px 0; }
+
+#footer {
+  clear: both;
+  padding: 2px 0;
+  border-top: 1px solid #999;
+  font-size: 0.8em;
+}

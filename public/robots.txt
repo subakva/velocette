@@ -1,0 +1,4 @@
+# robots.txt for http://velocette.subakva.com/
+
+User-agent: *
+Disallow: /admin/

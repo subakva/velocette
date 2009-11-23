@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block subtitle %}Welcome{% endblock subtitle %}
+
+{% block content %}
+
+<h2>How is this?</h2>
+<p>
+  It's here, it's free, it's simple. Give it a try.
+</p>
+<ol>
+  <li><a href='{% url new_account %}' title='Create a new account.'>Create an account.</a></li>
+  <li><a href='{% url new_session %}' title='Sign in to your account.'>Sign in.</a></li>
+  <li><a href='{% url new_task %}' title='Create a new task.'>Start tracking.</a></li>
+</ol>
+
+<h2>What is this?</h2>
+<p>
+  This is Velocette. It's a personal task and velocity tracker. You can quickly and easily add tasks
+  to a list, and mark them as complete. Velocette tracks the time that you complete tasks, and
+  provides a list of tasks that were completed in a given time period?
+</p>
+
+<h2>Why is this?</h2>
+<p>
+  I work on a team that practices Scrum. Part of the scrum process is a daily morning meeting in
+  which team members share what they completed the previous day, and what they plan on working on
+  today. I have plenty of tools for tracking tasks, but I wanted to see a list of just what was
+  completed the previous day so that I knew exactly what to report at the scrum.
+</p>
+
+
+{% endblock content %}

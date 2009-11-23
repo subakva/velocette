@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block subtitle %}Login{% endblock subtitle %}
+
+{% block content %}
+<form action='{% url create_session %}' method='post' class='account-form' accept-charset='utf-8'>
+  {% if form.errors %}
+  <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+  {{form.as_p}}
+  <p>
+    <input type="hidden" name="next" value="{{ next }}" />
+    <input type='submit' class='submit' value='Sign In' />
+  </p>
+  <ul>
+    <li>Forgot something? <a href='{% url password_reset %}' title='Reset your password.'>
+      Reset your password.
+    </a></li>
+    <li>
+      No account?
+      <a href='{% url new_account %}' title='Create a new account.'>Sign up for one now.</a>
+    </li>
+  </ul>
+</form>
+{% endblock content %}

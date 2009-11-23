@@ -1,0 +1,7 @@
+<form action='{% url create_account %}' method='post' accept-charset='utf-8'
+      class='account-form'>
+  {{new_account_form.as_p}}
+  <p>
+    <input type='submit' class='submit' value='Create'/>
+  </p>
+</form>

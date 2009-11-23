@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block subtitle %}Tasks{% endblock subtitle %}
+
+{% block content %}
+
+{% include "tasks/_dashboard.html" %}
+
+<h3>All Completed</h3>
+{% if not task_list %}
+  <p>There are no completed tasks.</p>
+{% else %}
+  {% with task_list as completed_list %}
+    {% include "tasks/_completed_list.html" %}
+  {% endwith %}
+{% endif %}
+
+{% include "tasks/_page_controls.html" %}
+
+{% endblock content %}

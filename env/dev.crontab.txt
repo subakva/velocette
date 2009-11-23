@@ -1,0 +1,5 @@
+# PYTHONPATH=/Users/jason/Code/velocette/lib
+# 30 * * * * /Users/jason/Code/velocette/manage.py runjobs hourly >/dev/null 2>&1
+# 00 3 * * * /Users/jason/Code/velocette/manage.py runjobs daily >/dev/null 2>&1
+# 00 4 * * 0 /Users/jason/Code/velocette/manage.py runjobs weekly >/dev/null 2>&1
+# 00 5 1 * * /Users/jason/Code/velocette/manage.py runjobs monthly >/dev/null 2>&1
